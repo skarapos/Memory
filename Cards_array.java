@@ -7,10 +7,7 @@ public class Cards_array {
     private ArrayList<Card> myarray1;
     private Card[] myarray2;
     private int len;
-    /**
-     * Constructor που δημιουργει μια ArrayList για τις καρτες που δημιουργουνται και εναν πινακα για την μνημη του υπολογιστη με μεγεθος την παραμετρο len.
-     * @param len
-     */
+
     public Cards_array(int len)
     {
         myarray2=new Card[len];
@@ -21,27 +18,17 @@ public class Cards_array {
             myarray2[counter]=null;
         }
     }
-    /**
-     * Προσθετει στην ArrayList την καρτα p.
-     * @param p
-     */
+
     public void add_card(Card p)
     {
             myarray1.add(p);
     }
-    /**
-     * Αναζητει την καρτα που βρισκετε στο κελι e στην ArrayList.
-     * @param e
-     * @return Την καρτα.
-     */
+
     public Card searchcard(int e)
     {
         return myarray1.get(e);
     }
-    /**
-     * Προσθετει την καρτα b στον πινακα της μνημης του υπολογιστη.
-     * @param b
-     */
+
     public void addmemcard(Card b)
     {
         for(int counter=0;counter<len;counter++)
@@ -59,11 +46,7 @@ public class Cards_array {
                 myarray2[len-1]=b;
         }
     }
-    /**
-     * Αναζητει την καρτα με id g.
-     * @param g
-     * @return Την καρτα με id g,αλλιως null.
-     */
+
     public Card searchmem(int g)
     {
         for(int counter=0;counter<len;counter++)
@@ -75,10 +58,7 @@ public class Cards_array {
         }
             return null;
     }
-    /**
-     * Διαγραφει την καρτα με id a απο την μνημη του υπολογιστη.
-     * @param a
-     */
+
     public void deletemem(int a)
     {
         int t=0;

@@ -44,26 +44,24 @@ public class View extends JFrame{
     private JMenuItem instructions;
     private JMenuItem exit;
     private JMenuBar bar;
-    private Cards_array v;//αντικειμενο για τους πινακες με τις καρτες και τις καρτες μνημης
-    private Icon[] icon;//Πινακας με το συνολο των εικονων
-    private Logic logic;//αντικειμενο για την λογικη του παιχνιδιου
-    private JTextField textfield1;//textfield για το σκορ του πρωτου παικτη
-    private JTextField textfield2;//textfield για το σκορ του δευτερου παικτη
-    private JLabel label1;//label για το ονομα του πρωτου παικτη
-    private JLabel label2;//label για το ονομα του δευτερου παικτη
-    private JLabel label3;//label που δειχνει ποιανου σειρα ειναι
+    private Cards_array v;
+    private Icon[] icon;
+    private Logic logic;
+    private JTextField textfield1;
+    private JTextField textfield2;
+    private JLabel label1;
+    private JLabel label2;
+    private JLabel label3;
     private Person player1;
     private Person player2;
     private Machine machine;
-    private boolean order1=false;//μεταβλητη που οταν ειναι false σημαινει οτι ειναι σειρα του πρωτου παικτη και οταν ειναι true σημαινει οτι ειναι σειρα του δευτερου παικτη
-    private int f=-1;//μεταβλητη που δειχνει το id της πρωτης καρτας που αντιστοιχει στο πρωτο απο τα 2 κουμπια
-    private int d=0;//μεταβλητη που μετραει το πληθος των κουμπιων περα του newgame που εχουν πατηθει και οταν φτασει στο 2 μηδενιζει
-    private int length1=0;//μεταβλητη για το μεγεθος του πινακα μνημης
-    private int f2=-1;//μεταβλητη που δειχνει το id της δευτερης καρτας που αντιστοιχει στο δευτερο κουμπι
-    private int end=0;//μεταβλητη που βοηθαει στον τερματισμο του παιχνιδιου
-    /**
-     * Constructor ο οποιος δημιουργει το γραφικο περιβαλλον.
-     */
+    private boolean order1=false;
+    private int f=-1;
+    private int d=0;
+    private int length1=0;
+    private int f2=-1;
+    private int end=0;
+
     public View()
     {
         super("MEMORY GAME");
@@ -81,7 +79,7 @@ public class View extends JFrame{
         addComponent(textfield1,2,0,2,1);
         addComponent(textfield2,2,2,2,1);
         logic=new Logic();
-        icon=new ImageIcon[11];//πινακας με τις εικονες 
+        icon=new ImageIcon[11];
         icon[0]=new ImageIcon(getClass().getResource("0.jpg"));
         icon[1]=new ImageIcon(getClass().getResource("1.jpg"));
         icon[2]=new ImageIcon(getClass().getResource("2.jpg"));
@@ -95,16 +93,16 @@ public class View extends JFrame{
         icon[10]=new ImageIcon(getClass().getResource("10.jpg"));
         file=new JMenu("File");
         edit=new JMenu("Edit");
-        aboutitem=new JMenuItem("Σχετικά...");
-        instructions=new JMenuItem("Οδηγίες για σωστή χρήση του προγράμματος");
-        exit=new JMenuItem ("Έξοδος");
+        aboutitem=new JMenuItem("Γ“Γ·Γ¥Γ΄Γ©ΓªΓ...");
+        instructions=new JMenuItem("ΓΓ¤Γ§Γ£ΓΓ¥Γ² Γ£Γ©Γ΅ Γ³ΓΉΓ³Γ΄Γ Γ·Γ±ΓΓ³Γ§ Γ΄Γ―Γµ Γ°Γ±Γ―Γ£Γ±ΓΓ¬Γ¬Γ΅Γ΄Γ―Γ²");
+        exit=new JMenuItem ("ΒΈΓ®Γ―Γ¤Γ―Γ²");
         aboutitem.addActionListener(
                 new ActionListener()
                 {
                     @Override
                     public void actionPerformed(ActionEvent event)
                     {
-                        JOptionPane.showMessageDialog(View.this,"Δημιουργός:Sotiris Karapostolakis\nAEM:2125\nΈτος:2013\nΕλπίζω να το ευχαριστηθείτε!!!","Σχετικά",JOptionPane.PLAIN_MESSAGE);
+                        JOptionPane.showMessageDialog(View.this,"Γ„Γ§Γ¬Γ©Γ―ΓµΓ±Γ£ΓΌΓ²:Sotiris Karapostolakis\nAEM:2125\nΒΈΓ΄Γ―Γ²:2013\nΓ…Γ«Γ°ΓΓ¦ΓΉ Γ­Γ΅ Γ΄Γ― Γ¥ΓµΓ·Γ΅Γ±Γ©Γ³Γ΄Γ§Γ¨Γ¥ΓΓ΄Γ¥!!!","Γ“Γ·Γ¥Γ΄Γ©ΓªΓ",JOptionPane.PLAIN_MESSAGE);
                     }
                 });
         instructions.addActionListener(
@@ -113,7 +111,7 @@ public class View extends JFrame{
                     @Override
                     public void actionPerformed(ActionEvent event)
                     {
-                        JOptionPane.showMessageDialog(View.this, "Επιλέξετε πρώτα τον αριθμό των balander,το είδος παιχνιδιού\n και την μνήμη του υπολογιστή εάν πρόκειται για παιχνίδι μεταξύ ανθρώπου και υπολογιστη.\nΣτη συνέχεια πατήστε το πλήκτρο newgame.\nΣε κάθε επιλογή είτε αυτή αφορά παίκτη είτε αφορά τον υπολογιστή\nπρέπει να πατάτε το πλήκτρο confirm.","Οδηγίες για σωστή χρήση του προγράμματος" , JOptionPane.PLAIN_MESSAGE);
+                        JOptionPane.showMessageDialog(View.this, "Γ…Γ°Γ©Γ«ΓΓ®Γ¥Γ΄Γ¥ Γ°Γ±ΓΎΓ΄Γ΅ Γ΄Γ―Γ­ Γ΅Γ±Γ©Γ¨Γ¬ΓΌ Γ΄ΓΉΓ­ balander,Γ΄Γ― Γ¥ΓΓ¤Γ―Γ² Γ°Γ΅Γ©Γ·Γ­Γ©Γ¤Γ©Γ―Γ½\n ΓªΓ΅Γ© Γ΄Γ§Γ­ Γ¬Γ­ΓΓ¬Γ§ Γ΄Γ―Γµ ΓµΓ°Γ―Γ«Γ―Γ£Γ©Γ³Γ΄Γ Γ¥ΓΓ­ Γ°Γ±ΓΌΓªΓ¥Γ©Γ΄Γ΅Γ© Γ£Γ©Γ΅ Γ°Γ΅Γ©Γ·Γ­ΓΓ¤Γ© Γ¬Γ¥Γ΄Γ΅Γ®Γ½ Γ΅Γ­Γ¨Γ±ΓΎΓ°Γ―Γµ ΓªΓ΅Γ© ΓµΓ°Γ―Γ«Γ―Γ£Γ©Γ³Γ΄Γ§.\nΓ“Γ΄Γ§ Γ³ΓµΓ­ΓΓ·Γ¥Γ©Γ΅ Γ°Γ΅Γ΄ΓΓ³Γ΄Γ¥ Γ΄Γ― Γ°Γ«ΓΓªΓ΄Γ±Γ― newgame.\nΓ“Γ¥ ΓªΓΓ¨Γ¥ Γ¥Γ°Γ©Γ«Γ―Γ£Γ Γ¥ΓΓ΄Γ¥ Γ΅ΓµΓ΄Γ Γ΅Γ¶Γ―Γ±Γ Γ°Γ΅ΓΓªΓ΄Γ§ Γ¥ΓΓ΄Γ¥ Γ΅Γ¶Γ―Γ±Γ Γ΄Γ―Γ­ ΓµΓ°Γ―Γ«Γ―Γ£Γ©Γ³Γ΄Γ\nΓ°Γ±ΓΓ°Γ¥Γ© Γ­Γ΅ Γ°Γ΅Γ΄ΓΓ΄Γ¥ Γ΄Γ― Γ°Γ«ΓΓªΓ΄Γ±Γ― confirm.","ΓΓ¤Γ§Γ£ΓΓ¥Γ² Γ£Γ©Γ΅ Γ³ΓΉΓ³Γ΄Γ Γ·Γ±ΓΓ³Γ§ Γ΄Γ―Γµ Γ°Γ±Γ―Γ£Γ±ΓΓ¬Γ¬Γ΅Γ΄Γ―Γ²" , JOptionPane.PLAIN_MESSAGE);
                     }
                 });
         exit.addActionListener(
@@ -134,7 +132,7 @@ public class View extends JFrame{
         bar.add(edit);
         ItemHandler itemhandler=new ItemHandler();
         String[] numofbal={"0","1","2","3","4","5","6","7"};
-        balmenu=new JMenu("Αριθμός balander");
+        balmenu=new JMenu("ΓΓ±Γ©Γ¨Γ¬ΓΌΓ² balander");
         bal=new JRadioButtonMenuItem[numofbal.length];
         balbuttongroup=new ButtonGroup();
         for(int counter=0;counter<bal.length;counter++)
@@ -146,8 +144,8 @@ public class View extends JFrame{
         bal[0].setSelected(true);
         edit.add(balmenu);
         edit.addSeparator();
-        String[] modes={"Ανθρωπος-Ύπολογιστης","Ανθρωπος-Ανθρωπος"};
-        modemenu=new JMenu("Είδος παιχνιδιού");
+        String[] modes={"ΓΓ­Γ¨Γ±ΓΉΓ°Γ―Γ²-ΒΎΓ°Γ―Γ«Γ―Γ£Γ©Γ³Γ΄Γ§Γ²","ΓΓ­Γ¨Γ±ΓΉΓ°Γ―Γ²-ΓΓ­Γ¨Γ±ΓΉΓ°Γ―Γ²"};
+        modemenu=new JMenu("Γ…ΓΓ¤Γ―Γ² Γ°Γ΅Γ©Γ·Γ­Γ©Γ¤Γ©Γ―Γ½");
         mode1=new JRadioButtonMenuItem[modes.length];
         modebuttongroup=new ButtonGroup();
         for(int counter=0;counter<modes.length;counter++)
@@ -160,7 +158,7 @@ public class View extends JFrame{
         edit.add(modemenu);
         edit.addSeparator();
         String[] numofmem={"0","1","2","3","4","5","6"};
-        memorymenu=new JMenu("Μνήμη υπολογιστή");
+        memorymenu=new JMenu("ΓΓ­ΓΓ¬Γ§ ΓµΓ°Γ―Γ«Γ―Γ£Γ©Γ³Γ΄Γ");
         mem=new JRadioButtonMenuItem[numofmem.length];
         memorybuttongroup=new ButtonGroup();
         for (int counter=0;counter<numofmem.length;counter++)
@@ -204,14 +202,7 @@ public class View extends JFrame{
                buttongame[counter1].addActionListener(handler);
         }
     }
-    /**
-     * Τοποθετει το καθε component στο πανελ.
-     * @param component
-     * @param row1
-     * @param column1
-     * @param width1
-     * @param height1 
-     */
+
     private void addComponent(Component component,int row1,int column1,int width1,int height1)
     {
         constraints.gridx=column1;
@@ -235,13 +226,7 @@ public class View extends JFrame{
             }
         }
     }
-    /**
-     * Εδώ διαχειριζονται τα κλικ που γινονται στα κουμπια.Εαν γινει κλικ στο κουμπι newgame αναλογα με τον αριθμο καρτων balander 
-     * δημιουργουνται τοσες καρτες balander και 16-(πληθος balander) κλασσικες καρτες.Επισης βλέπει το ειδος παιχνιδιου και αναλογα 
-     * ζηταει ονοματα για τους παικτες.Αν πατηθει καποιο αλλο κουμπί πρωτου του newgame τοτε δεν συμβαινει τιποτα.Αν πατηθει καποιο 
-     * κουμπι μετα το newgame,τοτε περιμενει να πατηθει δευτερο,και οταν πατηθει και το κουμπι confirm καλει μεσω της logic τη συναρτηση για την εκτελεση
-     * παιχνιδιου.Οι κινησεις του υπολογιστη ειναι τυχαιες λαμβανοντας υποψιν του και την μνημη του.
-     */
+
     private class ButtonHandler implements ActionListener
     {
         @Override
@@ -251,57 +236,55 @@ public class View extends JFrame{
             {
                 for(int counter1=0;counter1<20;counter1++)
                 {
-                    buttongame[counter1].setIcon(null);//γυρναει ολες τις καρτες 
+                    buttongame[counter1].setIcon(null);
                 }
                 end=0;
-                if (mode1[0].isSelected())//Μολις πατηθει το newgame ζηταει ονομα παικτη και δημιουργει τα αντικειμενα για τον παικτη ανθρωπο και παικτη υπολογιστη
+                if (mode1[0].isSelected())
                 {
-                    String name=JOptionPane.showInputDialog("Ονόμασε τον παίκτη ");
+                    String name=JOptionPane.showInputDialog("ΓΓ­ΓΌΓ¬Γ΅Γ³Γ¥ Γ΄Γ―Γ­ Γ°Γ΅ΓΓªΓ΄Γ§ ");
                     player1=new Person(1,name);
                     label1.setText(name);
                     machine=new Machine(2);
-                    label2.setText("Υπολογιστής");
-                    label3.setText("Σειρά : "+name);
+                    label2.setText("Γ•Γ°Γ―Γ«Γ―Γ£Γ©Γ³Γ΄ΓΓ²");
+                    label3.setText("Γ“Γ¥Γ©Γ±Γ : "+name);
                     textfield1.setText("");
                     textfield2.setText("");
                 }
-                else if(mode1[1].isSelected())//μολις πατηθει το newgame ζηταει τα ονοματα παικτων και δημιουργει τα αντικειμενα για τους παικτες ανθρωπους
+                else if(mode1[1].isSelected())
                 {
-                    String name1=JOptionPane.showInputDialog("Ονόμασε τον πρώτο παίκτη ");
-                    String name2=JOptionPane.showInputDialog("Ονόμασε τον δεύτερο παίκτη ");
+                    String name1=JOptionPane.showInputDialog("ΓΓ­ΓΌΓ¬Γ΅Γ³Γ¥ Γ΄Γ―Γ­ Γ°Γ±ΓΎΓ΄Γ― Γ°Γ΅ΓΓªΓ΄Γ§ ");
+                    String name2=JOptionPane.showInputDialog("ΓΓ­ΓΌΓ¬Γ΅Γ³Γ¥ Γ΄Γ―Γ­ Γ¤Γ¥Γ½Γ΄Γ¥Γ±Γ― Γ°Γ΅ΓΓªΓ΄Γ§ ");
                     player1=new Person(1,name1);
                     label1.setText(name1);
                     player2=new Person(2,name2);
                     label2.setText(name2);
-                    label3.setText("Σειρα : "+name1);
+                    label3.setText("Γ“Γ¥Γ©Γ±Γ΅ : "+name1);
                     textfield1.setText("");
                     textfield2.setText("");
                 }
                 for (int counter=0;counter<bal.length;counter++)
                 {
-                    Random r1=new Random();//γεννητρια τυχαιων αριθμων για την δημιουργια καρτων.
-                    int[] q={0,0,0,0,0,0,0,0,0,0,0};//πινακας οπου καθε κελι εκτος του μηδενος παιρνει μεχρι το 2 ενω το μηδεν παιρνει τιμες αναλογα με το πληθος των balander
-                    int y;//μεταβλητη που παιρνει τον τυχαιο αριθμο
+                    Random r1=new Random();
+                    int[] q={0,0,0,0,0,0,0,0,0,0,0};
+                    int y;
                     int t;
-                    /**
-                     * Η δημιουργια καρτων γινεται με την βοηθεια μιας Random μεταβλητης και του q πινακα.
-                     */
+
                     if(bal[0].isSelected())
                     {
                         for(int k=0;k<20;k++)
                         {
                             y=1+r1.nextInt(10);
                             t=0;
-                            while(t!=1)//βρογχος που επαναλαμβανεται μεχρι ο τυχαιος αριθμος να ειναι σωστος
+                            while(t!=1)
                             {
-                                if (q[y]<2)//αν ο αριθμος των καρτων με τν ιδια αξια ειναι μικροτερος του δυο-απαιτουνται δυο για να δημιουργειται ζευγαρι-τοτε ειναι σωστος ο τυχαιος αριθμος
+                                if (q[y]<2)
                                 {
-                                    cl_card m=new cl_card(k,y);//σε καθε δημιουργια καρτας το k ειναι το id και το y ειναι το value
+                                    cl_card m=new cl_card(k,y);
                                     v.add_card(m);
                                     q[y]++;
                                     t=1;
                                 }
-                                else//αν οχι τοτε βρισκουμε αλλο τυχαιο αριθμο
+                                else
                                 {
                                     y=1+r1.nextInt(10);
                                 }
@@ -312,7 +295,7 @@ public class View extends JFrame{
                     {
                         for(int k=0;k<20;k++)    
                         {
-                            if ((k==19)&&(q[0]==0))//Αν ο αριθμος των balander ειναι 0 τοτε στις 16-(αριθμος καρτων balander) τελευταιες επαναληψεις  δημιουργουνται τοσες καρτες balander οσο ειναι ο επιλεγμενος αριθμος 
+                            if ((k==19)&&(q[0]==0))
                             {
                                 bal_card m1=new bal_card(19,0);
                                 v.add_card(m1);
@@ -324,7 +307,7 @@ public class View extends JFrame{
                                 t=0;
                                 while(t!=1)
                                 {
-                                    if ((y==0)&&(q[0]<1))//γινεται ο ελεγχος για το υ και το κελι q[0] παιρνει τιμες μεχρι το πληθος των balander που θελει να εχει το παιχνιδι ο χρηστης
+                                    if ((y==0)&&(q[0]<1))
                                     {
                                         bal_card m1=new bal_card(k,0);
                                         v.add_card(m1);
@@ -590,23 +573,23 @@ public class View extends JFrame{
                 {
                     if (order1==false)
                     {
-                        if (d==2)//οταν γινει 2 σημαινει οτι εχουν επιλεγει 2 καρτες εχουν επιλεγει και πρεπει να γινει ο ελεγχος μεταξυ τους
+                        if (d==2)
                         {
-                            textfield1.setText(""+logic.Run_game1(v.searchcard(f),v.searchcard(f2),player1,machine,order1));// ενημερωνεται το textfield μεσω της κλησης της Run Game1
+                            textfield1.setText(""+logic.Run_game1(v.searchcard(f),v.searchcard(f2),player1,machine,order1));
                             logic.flip(buttongame,v,f,f2);
                             order1=!order1;
                             d=0;
-                            f=-1;//αρχικοποιείται επειδή πατηθηκαν δυο κουμπια
-                            f2=-1;//αρχικοποιείται επειδή πατηθηκαν δυο κουμπια
-                            label3.setText(label2.getText());//αλλαγη σειρας
+                            f=-1;
+                            f2=-1;
+                            label3.setText(label2.getText());
                             if (logic.endgame(buttongame,v))
                             {
-                                JOptionPane.showMessageDialog(View.this, "Τελος παιχνιδιού", "ΤΕΛΟΣ", JOptionPane.PLAIN_MESSAGE);
+                                JOptionPane.showMessageDialog(View.this, "Γ”Γ¥Γ«Γ―Γ² Γ°Γ΅Γ©Γ·Γ­Γ©Γ¤Γ©Γ―Γ½", "Γ”Γ…Γ‹ΓΓ“", JOptionPane.PLAIN_MESSAGE);
                                 end=1;
                                 order1=false;
                             }
                         }
-                        if (order1==true)//μετραει το πληθος των γυρισμενων καρτων και αν ειναι μικροτερος του 19 σταματαει ο υπολογιστης να επιλεγει καρτες
+                        if (order1==true)
                         {
                             r=0;
                             for(int counter3=0;counter3<20;counter3++)
@@ -615,7 +598,7 @@ public class View extends JFrame{
                                     r++;
                             }
                             if (r<19)
-                                logic.machinecard(buttongame, v, length1);//καλειται η machine card καθως ειναι σειρα του υπολογιστη
+                                logic.machinecard(buttongame, v, length1);
                         }
                     }
                     else 
@@ -623,13 +606,13 @@ public class View extends JFrame{
                         if (d==2)
                         {
                             textfield2.setText(""+logic.Run_game1(v.searchcard(f),v.searchcard(f2),player1,machine,order1));
-                            if (logic.flipcardmachine(buttongame,v,f,f2)==true)//αν οι καρτες δεν ειναι ιδιες τοτε αποθηκευονται στη μνημη
+                            if (logic.flipcardmachine(buttongame,v,f,f2)==true)
                             {
                                 v.addmemcard(v.searchcard(f));
                                 v.addmemcard(v.searchcard(f2));
                             }
                             else
-                            {//αλλιως διαγραφονται οι καρτες απο την μνημη του υπολογιστη
+                            {
                                 if (v.searchmem(v.searchcard(f).returnid())!=null)
                                     v.deletemem(v.searchcard(f).returnvalue());
                                 if (v.searchmem(v.searchcard(f2).returnid())!=null)
@@ -642,7 +625,7 @@ public class View extends JFrame{
                             f2=-1;
                             if (logic.endgame(buttongame,v))
                             {
-                                JOptionPane.showMessageDialog(View.this, "Τελος παιχνιδιού", "ΤΕΛΟΣ", JOptionPane.PLAIN_MESSAGE);
+                                JOptionPane.showMessageDialog(View.this, "Γ”Γ¥Γ«Γ―Γ² Γ°Γ΅Γ©Γ·Γ­Γ©Γ¤Γ©Γ―Γ½", "Γ”Γ…Γ‹ΓΓ“", JOptionPane.PLAIN_MESSAGE);
                                 end=1;
                                 order1=false;
                             }
@@ -664,7 +647,7 @@ public class View extends JFrame{
                             label3.setText(label2.getText());
                             if (logic.endgame(buttongame,v))
                             {
-                                JOptionPane.showMessageDialog(View.this, "Τελος παιχνιδιού", "ΤΕΛΟΣ", JOptionPane.PLAIN_MESSAGE);
+                                JOptionPane.showMessageDialog(View.this, "Γ”Γ¥Γ«Γ―Γ² Γ°Γ΅Γ©Γ·Γ­Γ©Γ¤Γ©Γ―Γ½", "Γ”Γ…Γ‹ΓΓ“", JOptionPane.PLAIN_MESSAGE);
                                 end=1;
                                 order1=false;
                             }
@@ -683,7 +666,7 @@ public class View extends JFrame{
                             label3.setText(label1.getText());
                             if (logic.endgame(buttongame,v))
                             {
-                                JOptionPane.showMessageDialog(View.this, "Τελος παιχνιδιού", "ΤΕΛΟΣ", JOptionPane.PLAIN_MESSAGE);
+                                JOptionPane.showMessageDialog(View.this, "Γ”Γ¥Γ«Γ―Γ² Γ°Γ΅Γ©Γ·Γ­Γ©Γ¤Γ©Γ―Γ½", "Γ”Γ…Γ‹ΓΓ“", JOptionPane.PLAIN_MESSAGE);
                                 end=1;
                                 order1=false;
                             }
@@ -693,20 +676,20 @@ public class View extends JFrame{
             }
             else
             {
-                for (int x=0;x<20;x++)// ελεγχει ποιο κουμπι πατηθηκε
+                for (int x=0;x<20;x++)
                 {
                     int r;
                     if (event.getSource()==buttongame[x])
                     {   
                         if ((buttongame[x].getIcon()==null)&&(end!=1))
                         {
-                            buttongame[x].setIcon(icon[(v.searchcard(x)).returnvalue()]);// αν ειναι κενο το κουμπι τοτε εμφανιζει την εικονα του κουμπιου
+                            buttongame[x].setIcon(icon[(v.searchcard(x)).returnvalue()]);
                             d++;
                             if (d==1)
                                 f=x;
                             if (d==2)
                                 f2=x;
-                            if ((d==1)&&(mode1[0].isSelected())&&(order1==true))//μετραει το πληθος των γυρισμενων καρτων και αν ειναι μικροτερος του 20 σταματαει ο υπολογιστης να επιλεγει καρτες
+                            if ((d==1)&&(mode1[0].isSelected())&&(order1==true))
                             {
                                 f2=x;
                                 r=0;
@@ -716,7 +699,7 @@ public class View extends JFrame{
                                         r++;
                                 }
                                 if (r<20)
-                                    logic.machinecard(buttongame, v, length1);//καλειται η machine card καθως ειναι σειρα του υπολογιστη
+                                    logic.machinecard(buttongame, v, length1);
                             }
                         }
                     }  

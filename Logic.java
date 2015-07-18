@@ -5,15 +5,7 @@ import javax.swing.JButton;
  */
 public class Logic{
     public Logic(){}
-    /**
-     * Ελεγχει τις καρτες αν εχουν ιδια αξια για το παιχνιδι μεταξυ ανθρωπου-υπολογιστη.
-     * @param f
-     * @param x
-     * @param p1
-     * @param m1
-     * @param order
-     * @return Επιστρεφει το σκορ του παικτη η του υπολογιστη.
-     */
+
     public int Run_game1(Card f,Card x,Player p1,Machine m1,boolean order)
     {
         if (order==false)
@@ -35,15 +27,7 @@ public class Logic{
                 return m1.updatescore(0);
         }
     }
-    /**
-     * Ελεγχει τις καρτες αν εχουν ιδια αξια στο παιχνιδι μεταξυ ανθρωπων.
-     * @param f
-     * @param x
-     * @param p1
-     * @param p2
-     * @param order
-     * @return Το σκορ του καθε παικτη.
-     */
+
     public int Run_game2(Card f,Card x,Player p1,Player p2, boolean order)
     {
         if (order==false)
@@ -65,12 +49,7 @@ public class Logic{
                 return p2.updatescore(0);
         }
     }
-    /**
-     * Βρισκει την καρτα που θα διαλεξει ο υπολογιστης λαμβανοντας υποψιν την μνημη του υπολογιστη.
-     * @param buttonagame
-     * @param x
-     * @param leng
-     */
+
     public void machinecard(JButton buttonagame[],Cards_array x,int leng)
     {
         Random r2=new Random();
@@ -95,12 +74,7 @@ public class Logic{
         else 
             buttonagame[x.searchmem(0).returnid()].doClick();
     }
-    /**
-     * Ελέγχει εάν υπάρχουν υποψήφια δυνατά ζευγάρια έτσι ώστε να σταματήσει το παιχνίδι.
-     * @param game
-     * @param cv
-     * @return 1 εάν δεν υπάρχουν υποψήφια δυνατά ζευγάρια 0 εαν υπαρχουν.
-     */
+
     public boolean endgame (JButton game[],Cards_array cv)
     {
         for (int counter=0;counter<20;counter++)
@@ -121,13 +95,7 @@ public class Logic{
         }
         return true;
     }
-    /**
-     * Ελέγχει εάν οι κάρτες δεν είναι ίδιες τοτε τις γυρναει αλλιως δεν κανει τιποτα.
-     * @param game1
-     * @param cv1
-     * @param f1
-     * @param x1
-     */
+
     public void flip (JButton game1[],Cards_array cv1,int f1,int x1)
     {
         if((cv1.searchcard(f1).returnvalue()!=cv1.searchcard(x1).returnvalue())&&(cv1.searchcard(f1).returnvalue()!=0)&&(cv1.searchcard(x1).returnvalue()!=0))
@@ -136,14 +104,7 @@ public class Logic{
             game1[x1].setIcon(null);
         }
     }
-    /**
-     * Ελέγχει εάν οι κάρτες του υπολογιστή δεν είναι ίδιες.Αν ναι τις γυρναει τις γυρνάει.
-     * @param game2
-     * @param cv2
-     * @param f2
-     * @param x2
-     * @return ΤRUE εάν γύρισαν οι κάρτες,FALSE αν δεν γύρισαν.
-     */
+
     public boolean flipcardmachine(JButton game2[],Cards_array cv2,int f2,int x2)
     {
         if((cv2.searchcard(f2).returnvalue()!=cv2.searchcard(x2).returnvalue())&&(cv2.searchcard(f2).returnvalue()!=0)&&(cv2.searchcard(x2).returnvalue()!=0))

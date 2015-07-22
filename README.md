@@ -1,2 +1,2 @@
 # Memory
-The classic memory game of cards. 
+The classic memory game of cards. The game contains 20 buttons. The game starts, once the user clicks "New Game" button. Every player clicks 2 buttons. Then he has to click "Confirm" button. The player with the most points wins. Every button represents a card. Memory supports 2 different kinds of game. Either human-human, or computer-human. The user can choose the number of "bird" cards. Every "bird" card matches with every card. Last but not least, the user can adjust the number of cards the computer can remember in the computer-human game.
